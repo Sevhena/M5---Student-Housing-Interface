@@ -1,0 +1,9 @@
+/* Custom CSS */
+.section {
+    min-height: 100vh; /* Sets the minimum height to 100% of the viewport height */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centers content vertically */
+    align-items: center; /* Centers content horizontally */
+    padding-top: 80px; /* Add padding to account for fixed navbar */
+}
