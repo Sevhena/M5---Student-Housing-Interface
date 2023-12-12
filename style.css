@@ -1,9 +1,92 @@
 /* Custom CSS */
-.section {
-    min-height: 100vh; /* Sets the minimum height to 100% of the viewport height */
+.carousel-item {
+    height: 60vh;
+    width: 100%;
+}
+
+.carousel-control {
+    background-color: transparent;
+    border: none;
+}
+
+.carousel-control:hover {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.carousel-indicators > button {
+    background-color: black;
+}
+
+.carousel-indicators > button .active {
+    background-color: white;
+}
+
+#featured-listings > h2 {
+    text-align: center;
+}
+
+.featured-content {
     display: flex;
-    flex-direction: column;
+    gap: 20px;
     justify-content: center; /* Centers content vertically */
     align-items: center; /* Centers content horizontally */
-    padding-top: 80px; /* Add padding to account for fixed navbar */
 }
+
+.listing-card ul {
+    display: flex;
+    gap: 10px;
+    margin: 0;
+    padding: 0;
+    font-size: 0.8rem;
+    list-style: none;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.listing-card .listing-address {
+    margin: 0;
+}
+
+.card-img > img {
+    width: 100%;
+    height: auto;
+}
+
+.listing-card > .card-body {
+    display: flex;
+    justify-content: space-between;
+}
+
+.listing-card .tools {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.bookmark-icon {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    height: 50px;
+    width: 50px;
+    width: 30px;
+    height: 30px;
+}
+
+.bookmark-icon > svg:hover {
+    fill: #1C274D;
+}
+
+.bookmark-icon > svg:hover path:last-of-type {
+    stroke: white;
+}
+
+#featured-listings > button {
+    display: block;
+}
+
+footer div.links > * {
+    text-align: center;
+}
+
+
