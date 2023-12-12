@@ -1,24 +1,32 @@
 /* Custom CSS */
+
+.text-tertiary {
+    color: lightblue;
+}
+
 .carousel-item {
     height: 60vh;
     width: 100%;
 }
 
-.carousel-control {
+/* .carousel-control {
     background-color: transparent;
     border: none;
-}
+} */
 
 .carousel-control:hover {
     background-color: rgba(0, 0, 0, 0.5);
 }
 
 .carousel-indicators > button {
-    background-color: black;
+    background-color: gray;
+    height: 4px;
+    width: 15px;
+    border: none;
 }
 
-.carousel-indicators > button .active {
-    background-color: white;
+.carousel-indicators > button.active {
+    background-color: black;
 }
 
 #featured-listings > h2 {
@@ -87,6 +95,11 @@
 
 footer div.links > * {
     text-align: center;
+}
+
+footer div.links a {
+    color: wheat;
+    text-decoration: none;
 }
 
 
