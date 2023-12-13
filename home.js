@@ -3,6 +3,22 @@ let loginLink = document.querySelector('.navbar a.log-in');
 let accountOptions = document.querySelector('.navbar .account-options');
 let welcomeText = document.querySelector('.dropdown-item.welcome-text');
 
+let navLinks = document.querySelectorAll(".navbar .nav-item")
+
+function updateNav() {
+    let currentPage = document.title;
+    for (const navItem of navLinks) {
+        if (navItem.textContent = currentPage) {
+            navItem.classList.add("active");
+            navItem.setAttribute("aria-currents", "page")
+        }
+        else if (navItem.classList.contains("active")) {
+            navItem.classList.remove("active");
+            navItem.removeAttribute("aria-currents")
+        }
+    }
+}
+
 function toggleBookmark(event) {
     let bookmark = event.target.querySelector('svg');
     let path = bookmark.querySelector('path:last-of-type');
