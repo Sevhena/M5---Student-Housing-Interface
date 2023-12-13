@@ -18,10 +18,16 @@
     display: none;
 }
 
+.navbar .nav-pills .nav-link.active {
+    background-color: rgb(108, 117, 125);
+    color: wheat;
+}
+
 .dropdown-menu {
     right: 0;
     left: unset;
 }
+
 
 .dropdown-item.welcome-text:hover {
     background-color: transparent;
