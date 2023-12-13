@@ -126,6 +126,14 @@
     fill: #1C274D;
 }
 
+.bookmark-icon > svg:active{
+    pointer-events: none;
+}
+
+.bookmark-icon > svg:active *{
+    pointer-events: none;
+}
+
 .bookmark-icon > svg:hover path:last-of-type {
     stroke: white;
 }

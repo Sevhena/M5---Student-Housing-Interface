@@ -2,8 +2,17 @@ let featuredItems = document.querySelector('#announcements .carousel-item')
 let loginLink = document.querySelector('.navbar a.log-in');
 let accountOptions = document.querySelector('.navbar .account-options');
 let welcomeText = document.querySelector('.dropdown-item.welcome-text');
-let logoutBtn = document.querySelector('.dropdown-item.logout')
-let email = document.querySelector('#email-input')
+
+function toggleBookmark(event) {
+    let bookmark = event.target.querySelector('svg');
+    let path = bookmark.querySelector('path:last-of-type');
+
+    console.log(bookmark.style.fill)
+    console.log(path.style.stroke)
+    bookmark.style.fill = bookmark.style.fill === "none" ? "rgb(28, 39, 77)" : "none";
+    path.style.stroke = path.style.stroke === "rgb(28, 39, 77)" ? "white" : "rgb(28, 39, 77)";
+
+}
 
 function toggleLogin() {
     loginLink.classList.toggle("logged-in")
