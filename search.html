@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Single Page Application</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Left-Side Options Bar -->
+    <nav id="sidebar" class="navbar navbar-light bg-light">
+        <div class="sidebar-content">
+            <h4>Filter Options</h4>
+
+            <!-- Price Slider -->
+            <label for="priceRange">Price Range:</label>
+            <input type="range" id="priceRange" name="priceRange" min="100" max="1000">
+            <p>Min: $<span id="priceMin">100</span> - Max: $<span id="priceMax">1000</span></p>
+
+            <!-- Number of Rooms -->
+            <label for="numRooms">Number of Rooms:</label>
+            <input type="number" id="numRooms" name="numRooms" min="1" max="10">
+
+            <!-- Number of Roommates -->
+            <label for="numRoommates">Number of Roommates:</label>
+            <input type="number" id="numRoommates" name="numRoommates" min="1" max="10">
+
+            <!-- Location/Proximity Filter -->
+            <label for="proximity">Proximity to Campus:</label>
+            <input type="number" id="proximity" name="proximity" min="0" max="50" placeholder="Distance in km">
+
+            <!-- Type of Accommodation -->
+            <label for="accommodationType">Accommodation Type:</label>
+            <select id="accommodationType" name="accommodationType">
+                <option value="apartment">Apartment</option>
+                <option value="sharedHouse">Shared House</option>
+                <option value="studio">Studio</option>
+                <option value="dormitory">Dormitory</option>
+            </select>
+
+            <!-- Lease Duration -->
+            <label for="leaseDuration">Lease Duration:</label>
+            <select id="leaseDuration" name="leaseDuration">
+                <option value="shortTerm">Short-Term</option>
+                <option value="longTerm">Long-Term</option>
+            </select>
+
+            <!-- Furnished Filter -->
+            <label>Furnished:</label>
+            <input type="checkbox" id="furnished" name="furnished">
+
+            <!-- Pet-Friendly Filter -->
+            <label>Pet-Friendly:</label>
+            <input type="checkbox" id="petFriendly" name="petFriendly">
+
+        </div>
+    </nav>
+
+   <!-- Main Content Area for Home Listings -->
+    <div id="main-content">
+        <!-- Example of a House Listing -->
+        <div class="house-listing">
+            <div class="container">
+                <div class="row">
+                    <div class="col align-content-center">
+                        <img src="https://www.mcmaster-housing.ca/276b/01.jpg" alt="House Image 1">
+                        <h3>111 Maple Street</h3>
+                        <p>Price: $740/month</p>
+                    </div>
+                    <div class="col-6">
+                        <ul>
+                            <li>4 Bedrooms, 2 Bathrooms</li>
+                            <li>Distance from campus: 0.5 km</li>
+                            <li>High-speed Wi-Fi</li>
+                            <li>Fully furnished living room and kitchen</li>
+                            <li>In-house laundry facilities</li>
+                            <li>Central heating and air conditioning</li>
+                            <li>Private parking space</li>
+                            <li>Pet-friendly environment</li>
+                            <li>24/7 security surveillance</li>
+                        </ul>
+                    </div>
+                    <div class="col m-3">
+                        <div class="row">
+                            <button class="btn btn-primary m-2">View Details</button> <!-- Bootstrap primary button -->
+                        </div>
+                        <div class="row">
+                            <button class="btn btn-secondary m-2">Message Landlord</button> <!-- Bootstrap secondary button -->
+                        </div>
+                        <div class="row">
+                            <button class="btn btn-success m-2">Find Roommates</button> <!-- Bootstrap success button -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> 
+        
+        <!-- House Listing 2 with Added Details -->
+    <div class="house-listing">
+        <div class="container">
+            <div class="row">
+                <div class="col align-content-center">
+                    <img src="https://wvs.imgix.net/2020/11/slide2.jpg?auto=format&fit=&h=auto&ixlib=php-3.2.0&w=1136&s=33935014d3283111a6d98b8693a9b0a5" alt="House Image 2">
+                    <h3>254 Oak Lane</h3>
+                    <p>Price: $900/month</p>
+                </div>
+                <div class="col-6">
+                    <ul>
+                        <li>3 Bedrooms, 1 Bathroom</li>
+                        <li>Distance from campus: 1 mile</li>
+                        <li>Wi-Fi included</li>
+                        <li>Spacious living room</li>
+                        <li>On-site laundry</li>
+                        <li>Heating system</li>
+                        <li>Private garden area</li>
+                        <li>Garage parking</li>
+                    </ul>
+                </div>
+                <div class="col m-3">
+                    <div class="row">
+                        <button class="btn btn-primary m-2">View Details</button> <!-- Bootstrap primary button -->
+                    </div>
+                    <div class="row">
+                        <button class="btn btn-secondary m-2">Message Landlord</button> <!-- Bootstrap secondary button -->
+                    </div>
+                    <div class="row">
+                        <button class="btn btn-success m-2">Find Roommates</button> <!-- Bootstrap success button -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- House Listing 3 with Added Details -->
+    <div class="house-listing">
+        <div class="container">
+            <div class="row">
+                <div class="col align-content-center">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT8GNGoohXsLu7uzpNIGSKFMXWXHzS_0Q0N-g&usqp=CAU" alt="House Image 3">
+                    <h3>367 Pine Crescent</h3>
+                    <p>Price: $825/month</p>
+                </div>
+                <div class="col-6">
+                    <ul>
+                        <li>2 Bedrooms, 2 Bathrooms</li>
+                        <li>Distance from campus: 2 miles</li>
+                        <li>High-speed internet</li>
+                        <li>Modern kitchen with appliances</li>
+                        <li>Laundry room with washer and dryer</li>
+                        <li>Air conditioning</li>
+                        <li>2 car parking space</li>
+                        <li>Close to public transport</li>
+                    </ul>
+                </div>
+                <div class="col m-3">
+                    <div class="row">
+                        <button class="btn btn-primary m-2">View Details</button> <!-- Bootstrap primary button -->
+                    </div>
+                    <div class="row">
+                        <button class="btn btn-secondary m-2">Message Landlord</button> <!-- Bootstrap secondary button -->
+                    </div>
+                    <div class="row">
+                        <button class="btn btn-success m-2">Find Roommates</button> <!-- Bootstrap success button -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Home-a-nator</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" 
+                    data-bs-target="#navbarNav" aria-controls="navbarNav" 
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="search.html">Search</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="messages.html">Messages</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#profile">Profile</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+</body>
