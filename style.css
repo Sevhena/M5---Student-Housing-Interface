@@ -54,15 +54,15 @@
 .carousel-item {
     height: 60vh;
     width: 100%;
+    overflow: hidden;
 }
 
-/* .carousel-control {
-    background-color: transparent;
-    border: none;
-} */
+.carousel-item > img {
+    height: 100%;
+}
 
 .carousel-control:hover {
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.2)!important;
 }
 
 .carousel-indicators > button {
@@ -81,7 +81,8 @@
 }
 
 .featured-content {
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
     gap: 20px;
     justify-content: center; /* Centers content vertically */
     align-items: center; /* Centers content horizontally */
@@ -129,23 +130,38 @@
 }
 
 .bookmark-icon > svg:hover {
+    transform: scale(1.2);
+}
+
+.bookmark-icon > svg.filled {
     fill: #1C274D;
 }
 
-.bookmark-icon > svg:active{
+.bookmark-icon > svg:active {
     pointer-events: none;
 }
 
-.bookmark-icon > svg:active *{
+.bookmark-icon > svg:active * {
     pointer-events: none;
 }
 
-.bookmark-icon > svg:hover path:last-of-type {
+.bookmark-icon > svg.filled path:last-of-type {
     stroke: white;
 }
 
-#featured-listings > button {
+#featured-listings > .listing-card {
+    width: 400px;
+}
+
+#featured-listings > a {
     display: block;
+    width: fit-content;
+    width: -moz-fit-content;
+}
+
+#featured-listings .card-img-top {
+    height: 200px;
+    overflow: hidden;
 }
 
 footer div.links > * {
