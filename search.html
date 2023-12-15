@@ -69,106 +69,141 @@
         </div>
     </nav>
 
-    <div class="toolbar bg-light d-flex justify-content-between align-items-center">
-        <button id="sidebar-toggler" class="navbar-toggler mt-1 border-0" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarNav"
-                aria-controls="sidebarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span><?xml version="1.0" encoding="UTF-8"?>
-                    <svg width="20px" height="20px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                        <title>Filter</title>
-                        <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                            <g id="Filter">
-                                <rect id="Rectangle" fill-rule="nonzero" x="0" y="0" width="24" height="24">
-                    
-                    </rect>
-                                <line x1="4" y1="5" x2="16" y2="5" id="Path" stroke="#0C0310" stroke-width="2" stroke-linecap="round">
-                    
-                    </line>
-                                <line x1="4" y1="12" x2="10" y2="12" id="Path" stroke="#0C0310" stroke-width="2" stroke-linecap="round">
-                    
-                    </line>
-                                <line x1="14" y1="12" x2="20" y2="12" id="Path" stroke="#0C0310" stroke-width="2" stroke-linecap="round">
-                    
-                    </line>
-                                <line x1="8" y1="19" x2="20" y2="19" id="Path" stroke="#0C0310" stroke-width="2" stroke-linecap="round">
-                    
-                    </line>
-                                <circle id="Oval" stroke="#0C0310" stroke-width="2" stroke-linecap="round" cx="18" cy="5" r="2">
-                    
-                    </circle>
-                                <circle id="Oval" stroke="#0C0310" stroke-width="2" stroke-linecap="round" cx="12" cy="12" r="2">
-                    
-                    </circle>
-                                <circle id="Oval" stroke="#0C0310" stroke-width="2" stroke-linecap="round" cx="6" cy="19" r="2">
-                    
-                    </circle>
-                            </g>
-                        </g>
-                    </svg></span>
-            </button>
-        <div class="sort m-1 me-3 btn">
-            Sort
-            <?xml version="1.0" encoding="utf-8"?><!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
-            <svg width="20px" height="20px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M22 7L2 7" stroke="#1C274C" stroke-width="1.5" stroke-linecap="round" />
-                <path d="M19 12L5 12" stroke="#1C274C" stroke-width="1.5" stroke-linecap="round" />
-                <path d="M16 17H8" stroke="#1C274C" stroke-width="1.5" stroke-linecap="round" />
-            </svg>
-        </div>
-    </div>
-
-    
     <main id="main-listing">
-        <!-- Left-Side Options Bar -->
-        
-        <nav id="sidebar" class="d-none navbar align-content-start navbar-light bg-light">
-            <div class="collapse navbar-collapse" id="sidebarNav">
-                <div class="sidebar-content">
-                    <h4>Filter Options</h4>
 
-                    <!-- Price Slider -->
-                    <label for="priceRange">Price Range:</label>
-                    <input type="range" id="priceRange" name="priceRange" min="100" max="1000">
-                    <p>Min: $<span id="priceMin">100</span> - Max: $<span id="priceMax">1000</span></p>
+        <div class="bg-light">
+            <button id="filter-toggle" class="btn btn-light d-lg-none" type="button" data-bs-toggle="offcanvas"
+                data-bs-target="#offcanvas-filter" aria-controls="offcanvas-filter">
+                <?xml version="1.0" encoding="UTF-8"?>
+                <!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
+                <svg width="30px" height="30px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink">
+                    <title>Filter</title>
+                    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                        <g id="Filter">
+                            <rect id="Rectangle" fill-rule="nonzero" x="0" y="0" width="24" height="24">
 
-                    <!-- Number of Rooms -->
-                    <label for="numRooms">Number of Rooms:</label>
-                    <input type="number" id="numRooms" name="numRooms" min="1" max="10">
+                            </rect>
+                            <line x1="4" y1="5" x2="16" y2="5" id="Path" stroke="#0C0310" stroke-width="2"
+                                stroke-linecap="round">
 
-                    <!-- Number of Roommates -->
-                    <label for="numRoommates">Number of Roommates:</label>
-                    <input type="number" id="numRoommates" name="numRoommates" min="1" max="10">
+                            </line>
+                            <line x1="4" y1="12" x2="10" y2="12" id="Path" stroke="#0C0310" stroke-width="2"
+                                stroke-linecap="round">
 
-                    <!-- Location/Proximity Filter -->
-                    <label for="proximity">Proximity to Campus:</label>
-                    <input type="number" id="proximity" name="proximity" min="0" max="50" placeholder="Distance in km">
+                            </line>
+                            <line x1="14" y1="12" x2="20" y2="12" id="Path" stroke="#0C0310" stroke-width="2"
+                                stroke-linecap="round">
 
-                    <!-- Type of Accommodation -->
-                    <label for="accommodationType">Accommodation Type:</label>
-                    <select id="accommodationType" name="accommodationType">
-                        <option value="apartment">Apartment</option>
-                        <option value="sharedHouse">Shared House</option>
-                        <option value="studio">Studio</option>
-                        <option value="dormitory">Dormitory</option>
-                    </select>
+                            </line>
+                            <line x1="8" y1="19" x2="20" y2="19" id="Path" stroke="#0C0310" stroke-width="2"
+                                stroke-linecap="round">
 
-                    <!-- Lease Duration -->
-                    <label for="leaseDuration">Lease Duration:</label>
-                    <select id="leaseDuration" name="leaseDuration">
-                        <option value="shortTerm">Short-Term</option>
-                        <option value="longTerm">Long-Term</option>
-                    </select>
+                            </line>
+                            <circle id="Oval" stroke="#0C0310" stroke-width="2" stroke-linecap="round" cx="18" cy="5"
+                                r="2">
 
-                    <!-- Furnished Filter -->
-                    <label for="furnished">Furnished:</label>
-                    <input type="checkbox" id="furnished" name="furnished">
+                            </circle>
+                            <circle id="Oval" stroke="#0C0310" stroke-width="2" stroke-linecap="round" cx="12" cy="12"
+                                r="2">
 
-                    <!-- Pet-Friendly Filter -->
-                    <label for="petFriendly">Pet-Friendly:</label>
-                    <input type="checkbox" id="petFriendly" name="petFriendly">
+                            </circle>
+                            <circle id="Oval" stroke="#0C0310" stroke-width="2" stroke-linecap="round" cx="6" cy="19"
+                                r="2">
 
+                            </circle>
+                        </g>
+                    </g>
+                </svg>
+            </button>
+
+            <div class="offcanvas-lg offcanvas-top bg-light" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="offcanvas-filter"
+                aria-labelledby="offcanvas-filter-label">
+                <div class="offcanvas-header d-flex justify-content-between px-3">
+                    <h5 class="offcanvas-title" id="offcanvas-filter-label">Filters</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas"
+                        data-bs-target="#offcanvas-filter" aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                    <div class="sidebar-content d-flex flex-column gap-4 p-3">
+                        <h4>Filter Options</h4>
+
+                        <!-- Price Slider -->
+                        <div>
+                            <label for="priceRange2">Price Range:</label>
+                            <input type="range" id="priceRange2" name="priceRange" min="100" max="1000">
+                            <p>Min: $<span id="priceMin2">100</span> - Max: $<span id="priceMax2">1000</span></p>
+                        </div>
+
+                        <!-- Number of Rooms -->
+                        <div>
+                            <label for="numRooms2">Number of Rooms:</label>
+                            <input type="number" id="numRooms2" name="numRooms" min="1" max="10">
+                        </div>
+
+                        <!-- Number of Roommates -->
+                        <div>
+                            <label for="numRoommates2">Number of Roommates:</label>
+                            <input type="number" id="numRoommates2" name="numRoommates" min="1" max="10">
+                        </div>
+
+                        <!-- Location/Proximity Filter -->
+                        <div>
+                            <label for="proximity2">Proximity to Campus:</label>
+                            <input type="number" id="proximity2" name="proximity" min="0" max="50"
+                                placeholder="Distance in km">
+                        </div>
+
+                        <!-- Type of Accommodation -->
+                        <div>
+                            <label for="accommodationType2">Accommodation Type:</label>
+                            <select id="accommodationType2" name="accommodationType">
+                                <option value="apartment">Apartment</option>
+                                <option value="sharedHouse">Shared House</option>
+                                <option value="studio">Studio</option>
+                                <option value="dormitory">Dormitory</option>
+                            </select>
+                        </div>
+
+                        <!-- Lease Duration -->
+                        <div>
+                            <label for="leaseDuration2">Lease Duration:</label>
+                            <select id="leaseDuration2" name="leaseDuration">
+                                <option value="shortTerm">Short-Term</option>
+                                <option value="longTerm">Long-Term</option>
+                            </select>
+                        </div>
+
+                        <!-- Furnished Filter -->
+                        <div>
+                            <label for="furnished2">Furnished:</label>
+                            <input type="checkbox" id="furnished2" name="furnished">
+                        </div>
+
+                        <!-- Pet-Friendly Filter -->
+                        <div>
+                            <label for="petFriendly2">Pet-Friendly:</label>
+                            <input type="checkbox" id="petFriendly2" name="petFriendly">
+                        </div>
+
+                    </div>
                 </div>
             </div>
-        </nav>
+
+        </div>
+
+        <div id="toolbar" class="bg-light d-flex justify-content-end align-items-center">
+
+            <div class="sort m-1 me-3 btn">
+                Sort
+                <?xml version="1.0" encoding="utf-8"?><!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
+                <svg width="20px" height="20px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M22 7L2 7" stroke="#1C274C" stroke-width="1.5" stroke-linecap="round" />
+                    <path d="M19 12L5 12" stroke="#1C274C" stroke-width="1.5" stroke-linecap="round" />
+                    <path d="M16 17H8" stroke="#1C274C" stroke-width="1.5" stroke-linecap="round" />
+                </svg>
+            </div>
+        </div>
 
         <!-- Main Content Area for Home Listings -->
         <div id="main-content">
