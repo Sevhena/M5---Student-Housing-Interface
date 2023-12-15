@@ -88,7 +88,8 @@
     align-items: center; /* Centers content horizontally */
 }
 
-.listing-card ul {
+.listing-card ul.listing-details,
+.house-listing ul.listing-details {
     display: flex;
     gap: 10px;
     margin: 0;
@@ -155,8 +156,8 @@
 
 #featured-listings > a {
     display: block;
-    width: fit-content;
     width: -moz-fit-content;
+    width: fit-content;
 }
 
 #featured-listings .card-img-top {
@@ -187,28 +188,6 @@ footer div.links a {
 }
 
 
-
-/* Medium devices (large phones, portrait tablets, 600px and up) */
-@media only screen and (min-width: 600px) {
-    .form-signin > div{
-        width: 70vw;
-    }
-}
-
-/* Medium devices (landscape tablets, 768px and up) */
-@media only screen and (min-width: 768px) {
-    .form-signin > div{
-        width: 45vw;
-    }
-}
-
-/* Large devices (laptops/desktops, 992px and up) */
-@media only screen and (min-width: 992px) {
-    .form-signin > div{
-        width: 30vw;
-    }
-}
-
 /* ############### Listings Page ######################### */
 
 .section {
@@ -230,7 +209,8 @@ footer div.links a {
 
 #sidebar {
     /* Other existing styles... */
-    /* position: sticky; */
+    /* position: relative;
+    top: -45px; */
     /* top: 80px; Adjusted to push down by the height of the navbar */
     left: 0;
     /* height: calc(100vh - 80px); Adjusted height to account for the navbar */
@@ -266,6 +246,15 @@ footer div.links a {
     /* Additional styling */
 }
 
+.toolbar {
+    height: 45px;
+}
+
+.toolbar .sort:hover {
+    transform: translateY(2px);
+    border: black solid 1px;
+}
+
 /* Style for House Listings */
 .house-listing {
     border: 1px solid #ddd;
@@ -276,12 +265,58 @@ footer div.links a {
     align-items: center; /* Align items vertically */
 }
 
+.house-listing .card-body {
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: auto auto;
+}
+
+
+
+.house-listing .amenities {
+    display: grid;
+    row-gap: 5px;
+    grid-template-columns: auto auto;
+    grid-template-rows: repeat(4, auto);
+    font-size: 0.9rem;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
 .house-listing img {
-    width: 150px; /* Adjust for thumbnail size */
-    height: auto; /* Maintain aspect ratio */
+    width: auto; /* Adjust for thumbnail size */
+    height: 100%; /* Maintain aspect ratio */
     border-radius: 5px;
     margin-right: 15px; /* Add some space between image and text */
 }
 
 /* Additional styling adjustments as needed */
+/* Medium devices (large phones, portrait tablets, 600px and up) */
+@media only screen and (min-width: 600px) {
+    .form-signin > div{
+        width: 70vw;
+    }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+    .form-signin > div{
+        width: 45vw;
+    }
+    .house-listing .card-body {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        grid-template-rows: auto;
+    }
+
+    .house-listing .card-body .options > div {
+        padding-top: 35px;
+    }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+    .form-signin > div{
+        width: 30vw;
+    }
+}
 

@@ -69,176 +69,336 @@
         </div>
     </nav>
 
+    <div class="toolbar bg-light d-flex justify-content-between align-items-center">
+        <button id="sidebar-toggler" class="navbar-toggler mt-1 border-0" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarNav"
+                aria-controls="sidebarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span><?xml version="1.0" encoding="UTF-8"?>
+                    <svg width="20px" height="20px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                        <title>Filter</title>
+                        <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                            <g id="Filter">
+                                <rect id="Rectangle" fill-rule="nonzero" x="0" y="0" width="24" height="24">
+                    
+                    </rect>
+                                <line x1="4" y1="5" x2="16" y2="5" id="Path" stroke="#0C0310" stroke-width="2" stroke-linecap="round">
+                    
+                    </line>
+                                <line x1="4" y1="12" x2="10" y2="12" id="Path" stroke="#0C0310" stroke-width="2" stroke-linecap="round">
+                    
+                    </line>
+                                <line x1="14" y1="12" x2="20" y2="12" id="Path" stroke="#0C0310" stroke-width="2" stroke-linecap="round">
+                    
+                    </line>
+                                <line x1="8" y1="19" x2="20" y2="19" id="Path" stroke="#0C0310" stroke-width="2" stroke-linecap="round">
+                    
+                    </line>
+                                <circle id="Oval" stroke="#0C0310" stroke-width="2" stroke-linecap="round" cx="18" cy="5" r="2">
+                    
+                    </circle>
+                                <circle id="Oval" stroke="#0C0310" stroke-width="2" stroke-linecap="round" cx="12" cy="12" r="2">
+                    
+                    </circle>
+                                <circle id="Oval" stroke="#0C0310" stroke-width="2" stroke-linecap="round" cx="6" cy="19" r="2">
+                    
+                    </circle>
+                            </g>
+                        </g>
+                    </svg></span>
+            </button>
+        <div class="sort m-1 me-3 btn">
+            Sort
+            <?xml version="1.0" encoding="utf-8"?><!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
+            <svg width="20px" height="20px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M22 7L2 7" stroke="#1C274C" stroke-width="1.5" stroke-linecap="round" />
+                <path d="M19 12L5 12" stroke="#1C274C" stroke-width="1.5" stroke-linecap="round" />
+                <path d="M16 17H8" stroke="#1C274C" stroke-width="1.5" stroke-linecap="round" />
+            </svg>
+        </div>
+    </div>
+
+    
     <main id="main-listing">
         <!-- Left-Side Options Bar -->
-        <nav id="sidebar" class="navbar navbar-light bg-light">
-            <div class="sidebar-content">
-                <h4>Filter Options</h4>
+        
+        <nav id="sidebar" class="d-none navbar align-content-start navbar-light bg-light">
+            <div class="collapse navbar-collapse" id="sidebarNav">
+                <div class="sidebar-content">
+                    <h4>Filter Options</h4>
 
-                <!-- Price Slider -->
-                <label for="priceRange">Price Range:</label>
-                <input type="range" id="priceRange" name="priceRange" min="100" max="1000">
-                <p>Min: $<span id="priceMin">100</span> - Max: $<span id="priceMax">1000</span></p>
+                    <!-- Price Slider -->
+                    <label for="priceRange">Price Range:</label>
+                    <input type="range" id="priceRange" name="priceRange" min="100" max="1000">
+                    <p>Min: $<span id="priceMin">100</span> - Max: $<span id="priceMax">1000</span></p>
 
-                <!-- Number of Rooms -->
-                <label for="numRooms">Number of Rooms:</label>
-                <input type="number" id="numRooms" name="numRooms" min="1" max="10">
+                    <!-- Number of Rooms -->
+                    <label for="numRooms">Number of Rooms:</label>
+                    <input type="number" id="numRooms" name="numRooms" min="1" max="10">
 
-                <!-- Number of Roommates -->
-                <label for="numRoommates">Number of Roommates:</label>
-                <input type="number" id="numRoommates" name="numRoommates" min="1" max="10">
+                    <!-- Number of Roommates -->
+                    <label for="numRoommates">Number of Roommates:</label>
+                    <input type="number" id="numRoommates" name="numRoommates" min="1" max="10">
 
-                <!-- Location/Proximity Filter -->
-                <label for="proximity">Proximity to Campus:</label>
-                <input type="number" id="proximity" name="proximity" min="0" max="50" placeholder="Distance in km">
+                    <!-- Location/Proximity Filter -->
+                    <label for="proximity">Proximity to Campus:</label>
+                    <input type="number" id="proximity" name="proximity" min="0" max="50" placeholder="Distance in km">
 
-                <!-- Type of Accommodation -->
-                <label for="accommodationType">Accommodation Type:</label>
-                <select id="accommodationType" name="accommodationType">
-                    <option value="apartment">Apartment</option>
-                    <option value="sharedHouse">Shared House</option>
-                    <option value="studio">Studio</option>
-                    <option value="dormitory">Dormitory</option>
-                </select>
+                    <!-- Type of Accommodation -->
+                    <label for="accommodationType">Accommodation Type:</label>
+                    <select id="accommodationType" name="accommodationType">
+                        <option value="apartment">Apartment</option>
+                        <option value="sharedHouse">Shared House</option>
+                        <option value="studio">Studio</option>
+                        <option value="dormitory">Dormitory</option>
+                    </select>
 
-                <!-- Lease Duration -->
-                <label for="leaseDuration">Lease Duration:</label>
-                <select id="leaseDuration" name="leaseDuration">
-                    <option value="shortTerm">Short-Term</option>
-                    <option value="longTerm">Long-Term</option>
-                </select>
+                    <!-- Lease Duration -->
+                    <label for="leaseDuration">Lease Duration:</label>
+                    <select id="leaseDuration" name="leaseDuration">
+                        <option value="shortTerm">Short-Term</option>
+                        <option value="longTerm">Long-Term</option>
+                    </select>
 
-                <!-- Furnished Filter -->
-                <label>Furnished:</label>
-                <input type="checkbox" id="furnished" name="furnished">
+                    <!-- Furnished Filter -->
+                    <label for="furnished">Furnished:</label>
+                    <input type="checkbox" id="furnished" name="furnished">
 
-                <!-- Pet-Friendly Filter -->
-                <label>Pet-Friendly:</label>
-                <input type="checkbox" id="petFriendly" name="petFriendly">
+                    <!-- Pet-Friendly Filter -->
+                    <label for="petFriendly">Pet-Friendly:</label>
+                    <input type="checkbox" id="petFriendly" name="petFriendly">
 
+                </div>
             </div>
         </nav>
 
         <!-- Main Content Area for Home Listings -->
         <div id="main-content">
             <!-- Example of a House Listing -->
-            <div class="house-listing">
-                <div class="container">
-                    <div class="row">
-                        <div class="col align-content-center">
-                            <img src="https://www.mcmaster-housing.ca/276b/01.jpg" alt="House Image 1">
-                            <h3>111 Maple Street</h3>
-                            <p>Price: $740/month</p>
-                        </div>
-                        <div class="col-6">
-                            <ul>
-                                <li>4 Bedrooms, 2 Bathrooms</li>
-                                <li>Distance from campus: 0.5 km</li>
-                                <li>High-speed Wi-Fi</li>
-                                <li>Fully furnished living room and kitchen</li>
-                                <li>In-house laundry facilities</li>
-                                <li>Central heating and air conditioning</li>
-                                <li>Private parking space</li>
-                                <li>Pet-friendly environment</li>
-                                <li>24/7 security surveillance</li>
-                            </ul>
-                        </div>
-                        <div class="col m-3">
-                            <div class="row">
-                                <button class="btn btn-primary m-2">View Details</button>
-                                <!-- Bootstrap primary button -->
+            <div class="card house-listing mb-3">
+                <div class="row g-0">
+                    <div class="col-md-4">
+                        <img src="https://www.mcmaster-housing.ca/276b/01.jpg" class="img-fluid rounded-start"
+                            alt="House Image 1">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <div class="info">
+                                <h5 class="card-title text-primary">$750<small
+                                        class="text-body-secondary text-secondary">/
+                                        month</small></h5>
+                                <h5 class="card-subtitle">
+                                    Room for Rent
+                                    <div class="verified-badge d-inline-block">
+                                        <?xml version="1.0" encoding="utf-8"?><!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
+                                        <svg title="verified" width="20px" height="20px" viewBox="0 0 24 24" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                                d="M9.5924 3.20027C9.34888 3.4078 9.22711 3.51158 9.09706 3.59874C8.79896 3.79854 8.46417 3.93721 8.1121 4.00672C7.95851 4.03705 7.79903 4.04977 7.48008 4.07522C6.6787 4.13918 6.278 4.17115 5.94371 4.28923C5.17051 4.56233 4.56233 5.17051 4.28923 5.94371C4.17115 6.278 4.13918 6.6787 4.07522 7.48008C4.04977 7.79903 4.03705 7.95851 4.00672 8.1121C3.93721 8.46417 3.79854 8.79896 3.59874 9.09706C3.51158 9.22711 3.40781 9.34887 3.20027 9.5924C2.67883 10.2043 2.4181 10.5102 2.26522 10.8301C1.91159 11.57 1.91159 12.43 2.26522 13.1699C2.41811 13.4898 2.67883 13.7957 3.20027 14.4076C3.40778 14.6511 3.51158 14.7729 3.59874 14.9029C3.79854 15.201 3.93721 15.5358 4.00672 15.8879C4.03705 16.0415 4.04977 16.201 4.07522 16.5199C4.13918 17.3213 4.17115 17.722 4.28923 18.0563C4.56233 18.8295 5.17051 19.4377 5.94371 19.7108C6.278 19.8288 6.6787 19.8608 7.48008 19.9248C7.79903 19.9502 7.95851 19.963 8.1121 19.9933C8.46417 20.0628 8.79896 20.2015 9.09706 20.4013C9.22711 20.4884 9.34887 20.5922 9.5924 20.7997C10.2043 21.3212 10.5102 21.5819 10.8301 21.7348C11.57 22.0884 12.43 22.0884 13.1699 21.7348C13.4898 21.5819 13.7957 21.3212 14.4076 20.7997C14.6511 20.5922 14.7729 20.4884 14.9029 20.4013C15.201 20.2015 15.5358 20.0628 15.8879 19.9933C16.0415 19.963 16.201 19.9502 16.5199 19.9248C17.3213 19.8608 17.722 19.8288 18.0563 19.7108C18.8295 19.4377 19.4377 18.8295 19.7108 18.0563C19.8288 17.722 19.8608 17.3213 19.9248 16.5199C19.9502 16.201 19.963 16.0415 19.9933 15.8879C20.0628 15.5358 20.2015 15.201 20.4013 14.9029C20.4884 14.7729 20.5922 14.6511 20.7997 14.4076C21.3212 13.7957 21.5819 13.4898 21.7348 13.1699C22.0884 12.43 22.0884 11.57 21.7348 10.8301C21.5819 10.5102 21.3212 10.2043 20.7997 9.5924C20.5922 9.34887 20.4884 9.22711 20.4013 9.09706C20.2015 8.79896 20.0628 8.46417 19.9933 8.1121C19.963 7.95851 19.9502 7.79903 19.9248 7.48008C19.8608 6.6787 19.8288 6.278 19.7108 5.94371C19.4377 5.17051 18.8295 4.56233 18.0563 4.28923C17.722 4.17115 17.3213 4.13918 16.5199 4.07522C16.201 4.04977 16.0415 4.03705 15.8879 4.00672C15.5358 3.93721 15.201 3.79854 14.9029 3.59874C14.7729 3.51158 14.6511 3.40781 14.4076 3.20027C13.7957 2.67883 13.4898 2.41811 13.1699 2.26522C12.43 1.91159 11.57 1.91159 10.8301 2.26522C10.5102 2.4181 10.2043 2.67883 9.5924 3.20027ZM16.3735 9.86314C16.6913 9.5453 16.6913 9.03 16.3735 8.71216C16.0557 8.39433 15.5403 8.39433 15.2225 8.71216L10.3723 13.5624L8.77746 11.9676C8.45963 11.6498 7.94432 11.6498 7.62649 11.9676C7.30866 12.2854 7.30866 12.8007 7.62649 13.1186L9.79678 15.2889C10.1146 15.6067 10.6299 15.6067 10.9478 15.2889L16.3735 9.86314Z"
+                                                fill="#1C274C" />
+                                        </svg>
+                                    </div>
+                                    </h4>
+                                    <p class="card-text listing-address text-muted mb-0">111 Maple Street | Hamilton</p>
+                                    <ul class="listing-details mt-1 mb-2">
+                                        <li class="nb-beds">4 <span>beds</span></li>
+                                        <li class="nb-baths">2 <span>baths</span></li>
+                                        <li class="size">2100 <span>FT²</span></li>
+                                    </ul>
+                                    <ul class="amenities text-secondary list-unstyled">
+                                        <li class="has">High-speed Wi-Fi</li>
+                                        <li class="has">Fully Furnished</li>
+                                        <li class="lacks">Utilities Included</li>
+                                        <li class="has">Laundry</li>
+                                        <li class="has">Heating + AC</li>
+                                        <li class="has">Parking</li>
+                                        <li class="has">Pet-friendly</li>
+                                        <li class="has">24/7 security surveillance</li>
+                                    </ul>
+                                    <p class="post-date card-text">
+                                        <small class="text-muted">Posted 7 hours ago</small>
+                                    </p>
                             </div>
-                            <div class="row">
-                                <button class="btn btn-secondary m-2">Message Landlord</button>
-                                <!-- Bootstrap secondary button -->
-                            </div>
-                            <div class="row">
-                                <button class="btn btn-success m-2">Find Roommates</button>
-                                <!-- Bootstrap success button -->
+                            <div class="options">
+                                <div class="col m-3">
+                                    <div class="row">
+                                        <button class="btn btn-primary m-2">View Details</button>
+                                        <!-- Bootstrap primary button -->
+                                    </div>
+                                    <div class="row">
+                                        <button class="btn btn-secondary m-2">Message Landlord</button>
+                                        <!-- Bootstrap secondary button -->
+                                    </div>
+                                    <div class="row">
+                                        <button class="btn btn-success m-2">Find Roommates</button>
+                                        <!-- Bootstrap success button -->
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
+                <a type="button" class="bookmark-icon" onclick="toggleBookmark(event)">
+                    <?xml version="1.0" encoding="utf-8"?><!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
+                    <svg title="bookmark" width="30px" height="30" viewBox="0 0 24 24" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M3 11.0975V16.0909C3 19.1875 3 20.7358 3.73411 21.4123C4.08422 21.735 4.52615 21.9377 4.99692 21.9915C5.98402 22.1045 7.13675 21.0849 9.44216 19.0458C10.4612 18.1445 10.9708 17.6938 11.5603 17.5751C11.8506 17.5166 12.1494 17.5166 12.4397 17.5751C13.0292 17.6938 13.5388 18.1445 14.5578 19.0458C16.8633 21.0849 18.016 22.1045 19.0031 21.9915C19.4739 21.9377 19.9158 21.735 20.2659 21.4123C21 20.7358 21 19.1875 21 16.0909V11.0975C21 6.80891 21 4.6646 19.682 3.3323C18.364 2 16.2426 2 12 2C7.75736 2 5.63604 2 4.31802 3.3323C3.5108 4.14827 3.19796 5.26881 3.07672 7"
+                            stroke="#1C274D" stroke-width="1.5" stroke-linecap="round" />
+                        <path d="M15 6H9" stroke="#1C274D" stroke-width="1.5" stroke-linecap="round" />
+                    </svg>
+                </a>
             </div>
 
             <!-- House Listing 2 with Added Details -->
-            <div class="house-listing">
-                <div class="container">
-                    <div class="row">
-                        <div class="col align-content-center">
-                            <img src="https://wvs.imgix.net/2020/11/slide2.jpg?auto=format&fit=&h=auto&ixlib=php-3.2.0&w=1136&s=33935014d3283111a6d98b8693a9b0a5"
-                                alt="House Image 2">
-                            <h3>254 Oak Lane</h3>
-                            <p>Price: $900/month</p>
-                        </div>
-                        <div class="col-6">
-                            <ul>
-                                <li>3 Bedrooms, 1 Bathroom</li>
-                                <li>Distance from campus: 1 mile</li>
-                                <li>Wi-Fi included</li>
-                                <li>Spacious living room</li>
-                                <li>On-site laundry</li>
-                                <li>Heating system</li>
-                                <li>Private garden area</li>
-                                <li>Garage parking</li>
-                            </ul>
-                        </div>
-                        <div class="col m-3">
-                            <div class="row">
-                                <button class="btn btn-primary m-2">View Details</button>
-                                <!-- Bootstrap primary button -->
+            <div class="card house-listing mb-3">
+                <div class="row g-0">
+                    <div class="col-md-4">
+                        <img src="https://www.mcmaster-housing.ca/276b/01.jpg" class="img-fluid rounded-start"
+                            alt="House Image 1">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <div class="info">
+                                <h5 class="card-title text-primary">$900<small
+                                        class="text-body-secondary text-secondary">/
+                                        month</small></h5>
+                                <h5 class="card-subtitle">
+                                    Room for Rent
+                                    <div class="verified-badge d-inline-block">
+                                        <?xml version="1.0" encoding="utf-8"?><!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
+                                        <svg title="verified" width="20px" height="20px" viewBox="0 0 24 24" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                                d="M9.5924 3.20027C9.34888 3.4078 9.22711 3.51158 9.09706 3.59874C8.79896 3.79854 8.46417 3.93721 8.1121 4.00672C7.95851 4.03705 7.79903 4.04977 7.48008 4.07522C6.6787 4.13918 6.278 4.17115 5.94371 4.28923C5.17051 4.56233 4.56233 5.17051 4.28923 5.94371C4.17115 6.278 4.13918 6.6787 4.07522 7.48008C4.04977 7.79903 4.03705 7.95851 4.00672 8.1121C3.93721 8.46417 3.79854 8.79896 3.59874 9.09706C3.51158 9.22711 3.40781 9.34887 3.20027 9.5924C2.67883 10.2043 2.4181 10.5102 2.26522 10.8301C1.91159 11.57 1.91159 12.43 2.26522 13.1699C2.41811 13.4898 2.67883 13.7957 3.20027 14.4076C3.40778 14.6511 3.51158 14.7729 3.59874 14.9029C3.79854 15.201 3.93721 15.5358 4.00672 15.8879C4.03705 16.0415 4.04977 16.201 4.07522 16.5199C4.13918 17.3213 4.17115 17.722 4.28923 18.0563C4.56233 18.8295 5.17051 19.4377 5.94371 19.7108C6.278 19.8288 6.6787 19.8608 7.48008 19.9248C7.79903 19.9502 7.95851 19.963 8.1121 19.9933C8.46417 20.0628 8.79896 20.2015 9.09706 20.4013C9.22711 20.4884 9.34887 20.5922 9.5924 20.7997C10.2043 21.3212 10.5102 21.5819 10.8301 21.7348C11.57 22.0884 12.43 22.0884 13.1699 21.7348C13.4898 21.5819 13.7957 21.3212 14.4076 20.7997C14.6511 20.5922 14.7729 20.4884 14.9029 20.4013C15.201 20.2015 15.5358 20.0628 15.8879 19.9933C16.0415 19.963 16.201 19.9502 16.5199 19.9248C17.3213 19.8608 17.722 19.8288 18.0563 19.7108C18.8295 19.4377 19.4377 18.8295 19.7108 18.0563C19.8288 17.722 19.8608 17.3213 19.9248 16.5199C19.9502 16.201 19.963 16.0415 19.9933 15.8879C20.0628 15.5358 20.2015 15.201 20.4013 14.9029C20.4884 14.7729 20.5922 14.6511 20.7997 14.4076C21.3212 13.7957 21.5819 13.4898 21.7348 13.1699C22.0884 12.43 22.0884 11.57 21.7348 10.8301C21.5819 10.5102 21.3212 10.2043 20.7997 9.5924C20.5922 9.34887 20.4884 9.22711 20.4013 9.09706C20.2015 8.79896 20.0628 8.46417 19.9933 8.1121C19.963 7.95851 19.9502 7.79903 19.9248 7.48008C19.8608 6.6787 19.8288 6.278 19.7108 5.94371C19.4377 5.17051 18.8295 4.56233 18.0563 4.28923C17.722 4.17115 17.3213 4.13918 16.5199 4.07522C16.201 4.04977 16.0415 4.03705 15.8879 4.00672C15.5358 3.93721 15.201 3.79854 14.9029 3.59874C14.7729 3.51158 14.6511 3.40781 14.4076 3.20027C13.7957 2.67883 13.4898 2.41811 13.1699 2.26522C12.43 1.91159 11.57 1.91159 10.8301 2.26522C10.5102 2.4181 10.2043 2.67883 9.5924 3.20027ZM16.3735 9.86314C16.6913 9.5453 16.6913 9.03 16.3735 8.71216C16.0557 8.39433 15.5403 8.39433 15.2225 8.71216L10.3723 13.5624L8.77746 11.9676C8.45963 11.6498 7.94432 11.6498 7.62649 11.9676C7.30866 12.2854 7.30866 12.8007 7.62649 13.1186L9.79678 15.2889C10.1146 15.6067 10.6299 15.6067 10.9478 15.2889L16.3735 9.86314Z"
+                                                fill="#1C274C" />
+                                        </svg>
+                                    </div>
+                                    </h4>
+                                    <p class="card-text listing-address text-muted mb-0">254 Oak Lane | Toronto</p>
+                                    <ul class="listing-details mt-1 mb-2">
+                                        <li class="nb-beds">3 <span>beds</span></li>
+                                        <li class="nb-baths">1 <span>baths</span></li>
+                                        <li class="size">2200 <span>FT²</span></li>
+                                    </ul>
+                                    <ul class="amenities text-secondary list-unstyled">
+                                        <li class="has">Wifi Included</li>
+                                        <li class="lacks">Fully Furnished</li>
+                                        <li class="has">Utilities Included</li>
+                                        <li class="has">Laundry</li>
+                                        <li class="has">Heating</li>
+                                        <li class="lacks">Air conditioning</li>
+                                        <li class="has">Garage parking</li>
+                                        <li class="lacks">Pet-friendly</li>
+                                        <li class="has">Garden area</li>
+                                    </ul>
+                                    <p class="post-date card-text">
+                                        <small class="text-muted">Posted 3 days ago</small>
+                                    </p>
                             </div>
-                            <div class="row">
-                                <button class="btn btn-secondary m-2">Message Landlord</button>
-                                <!-- Bootstrap secondary button -->
-                            </div>
-                            <div class="row">
-                                <button class="btn btn-success m-2">Find Roommates</button>
-                                <!-- Bootstrap success button -->
+                            <div class="options">
+                                <div class="col m-3">
+                                    <div class="row">
+                                        <button class="btn btn-primary m-2">View Details</button>
+                                        <!-- Bootstrap primary button -->
+                                    </div>
+                                    <div class="row">
+                                        <button class="btn btn-secondary m-2">Message Landlord</button>
+                                        <!-- Bootstrap secondary button -->
+                                    </div>
+                                    <div class="row">
+                                        <button class="btn btn-success m-2">Find Roommates</button>
+                                        <!-- Bootstrap success button -->
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
+                <a type="button" class="bookmark-icon" onclick="toggleBookmark(event)">
+                    <?xml version="1.0" encoding="utf-8"?><!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
+                    <svg title="bookmark" width="30px" height="30" viewBox="0 0 24 24" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M3 11.0975V16.0909C3 19.1875 3 20.7358 3.73411 21.4123C4.08422 21.735 4.52615 21.9377 4.99692 21.9915C5.98402 22.1045 7.13675 21.0849 9.44216 19.0458C10.4612 18.1445 10.9708 17.6938 11.5603 17.5751C11.8506 17.5166 12.1494 17.5166 12.4397 17.5751C13.0292 17.6938 13.5388 18.1445 14.5578 19.0458C16.8633 21.0849 18.016 22.1045 19.0031 21.9915C19.4739 21.9377 19.9158 21.735 20.2659 21.4123C21 20.7358 21 19.1875 21 16.0909V11.0975C21 6.80891 21 4.6646 19.682 3.3323C18.364 2 16.2426 2 12 2C7.75736 2 5.63604 2 4.31802 3.3323C3.5108 4.14827 3.19796 5.26881 3.07672 7"
+                            stroke="#1C274D" stroke-width="1.5" stroke-linecap="round" />
+                        <path d="M15 6H9" stroke="#1C274D" stroke-width="1.5" stroke-linecap="round" />
+                    </svg>
+                </a>
             </div>
 
             <!-- House Listing 3 with Added Details -->
-            <div class="house-listing">
-                <div class="container">
-                    <div class="row">
-                        <div class="col align-content-center">
-                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT8GNGoohXsLu7uzpNIGSKFMXWXHzS_0Q0N-g&usqp=CAU"
-                                alt="House Image 3">
-                            <h3>367 Pine Crescent</h3>
-                            <p>Price: $825/month</p>
-                        </div>
-                        <div class="col-6">
-                            <ul>
-                                <li>2 Bedrooms, 2 Bathrooms</li>
-                                <li>Distance from campus: 2 miles</li>
-                                <li>High-speed internet</li>
-                                <li>Modern kitchen with appliances</li>
-                                <li>Laundry room with washer and dryer</li>
-                                <li>Air conditioning</li>
-                                <li>2 car parking space</li>
-                                <li>Close to public transport</li>
-                            </ul>
-                        </div>
-                        <div class="col m-3">
-                            <div class="row">
-                                <button class="btn btn-primary m-2">View Details</button>
-                                <!-- Bootstrap primary button -->
+            <div class="card house-listing mb-3">
+                <div class="row g-0">
+                    <div class="col-md-4">
+                        <img src="https://www.mcmaster-housing.ca/276b/01.jpg" class="img-fluid rounded-start"
+                            alt="House Image 1">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <div class="info">
+                                <h5 class="card-title text-primary">$1650<small
+                                        class="text-body-secondary text-secondary">/
+                                        month</small></h5>
+                                <h5 class="card-subtitle">
+                                    House for Rent
+                                    <div class="verified-badge d-inline-block">
+                                        <?xml version="1.0" encoding="utf-8"?><!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
+                                        <svg title="verified" width="20px" height="20px" viewBox="0 0 24 24" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                                d="M9.5924 3.20027C9.34888 3.4078 9.22711 3.51158 9.09706 3.59874C8.79896 3.79854 8.46417 3.93721 8.1121 4.00672C7.95851 4.03705 7.79903 4.04977 7.48008 4.07522C6.6787 4.13918 6.278 4.17115 5.94371 4.28923C5.17051 4.56233 4.56233 5.17051 4.28923 5.94371C4.17115 6.278 4.13918 6.6787 4.07522 7.48008C4.04977 7.79903 4.03705 7.95851 4.00672 8.1121C3.93721 8.46417 3.79854 8.79896 3.59874 9.09706C3.51158 9.22711 3.40781 9.34887 3.20027 9.5924C2.67883 10.2043 2.4181 10.5102 2.26522 10.8301C1.91159 11.57 1.91159 12.43 2.26522 13.1699C2.41811 13.4898 2.67883 13.7957 3.20027 14.4076C3.40778 14.6511 3.51158 14.7729 3.59874 14.9029C3.79854 15.201 3.93721 15.5358 4.00672 15.8879C4.03705 16.0415 4.04977 16.201 4.07522 16.5199C4.13918 17.3213 4.17115 17.722 4.28923 18.0563C4.56233 18.8295 5.17051 19.4377 5.94371 19.7108C6.278 19.8288 6.6787 19.8608 7.48008 19.9248C7.79903 19.9502 7.95851 19.963 8.1121 19.9933C8.46417 20.0628 8.79896 20.2015 9.09706 20.4013C9.22711 20.4884 9.34887 20.5922 9.5924 20.7997C10.2043 21.3212 10.5102 21.5819 10.8301 21.7348C11.57 22.0884 12.43 22.0884 13.1699 21.7348C13.4898 21.5819 13.7957 21.3212 14.4076 20.7997C14.6511 20.5922 14.7729 20.4884 14.9029 20.4013C15.201 20.2015 15.5358 20.0628 15.8879 19.9933C16.0415 19.963 16.201 19.9502 16.5199 19.9248C17.3213 19.8608 17.722 19.8288 18.0563 19.7108C18.8295 19.4377 19.4377 18.8295 19.7108 18.0563C19.8288 17.722 19.8608 17.3213 19.9248 16.5199C19.9502 16.201 19.963 16.0415 19.9933 15.8879C20.0628 15.5358 20.2015 15.201 20.4013 14.9029C20.4884 14.7729 20.5922 14.6511 20.7997 14.4076C21.3212 13.7957 21.5819 13.4898 21.7348 13.1699C22.0884 12.43 22.0884 11.57 21.7348 10.8301C21.5819 10.5102 21.3212 10.2043 20.7997 9.5924C20.5922 9.34887 20.4884 9.22711 20.4013 9.09706C20.2015 8.79896 20.0628 8.46417 19.9933 8.1121C19.963 7.95851 19.9502 7.79903 19.9248 7.48008C19.8608 6.6787 19.8288 6.278 19.7108 5.94371C19.4377 5.17051 18.8295 4.56233 18.0563 4.28923C17.722 4.17115 17.3213 4.13918 16.5199 4.07522C16.201 4.04977 16.0415 4.03705 15.8879 4.00672C15.5358 3.93721 15.201 3.79854 14.9029 3.59874C14.7729 3.51158 14.6511 3.40781 14.4076 3.20027C13.7957 2.67883 13.4898 2.41811 13.1699 2.26522C12.43 1.91159 11.57 1.91159 10.8301 2.26522C10.5102 2.4181 10.2043 2.67883 9.5924 3.20027ZM16.3735 9.86314C16.6913 9.5453 16.6913 9.03 16.3735 8.71216C16.0557 8.39433 15.5403 8.39433 15.2225 8.71216L10.3723 13.5624L8.77746 11.9676C8.45963 11.6498 7.94432 11.6498 7.62649 11.9676C7.30866 12.2854 7.30866 12.8007 7.62649 13.1186L9.79678 15.2889C10.1146 15.6067 10.6299 15.6067 10.9478 15.2889L16.3735 9.86314Z"
+                                                fill="#1C274C" />
+                                        </svg>
+                                    </div>
+                                    </h4>
+                                    <p class="card-text listing-address text-muted mb-0">367 Pine Crescent | Ottawa</p>
+                                    <ul class="listing-details mt-1 mb-2">
+                                        <li class="nb-beds">2 <span>beds</span></li>
+                                        <li class="nb-baths">2 <span>baths</span></li>
+                                        <li class="size">1600 <span>FT²</span></li>
+                                    </ul>
+                                    <ul class="amenities text-secondary list-unstyled">
+                                        <li class="has">High-speed Wi-Fi</li>
+                                        <li class="lacks">Fully Furnished</li>
+                                        <li class="lacks">Utilities Included</li>
+                                        <li class="has">Laundry</li>
+                                        <li class="has">Heating + AC</li>
+                                        <li class="has">Parking</li>
+                                        <li class="has">Pet-friendly</li>
+                                        <li class="has">Newly Renovated</li>
+                                    </ul>
+                                    <p class="post-date card-text">
+                                        <small class="text-muted">Posted 2 hours ago</small>
+                                    </p>
                             </div>
-                            <div class="row">
-                                <button class="btn btn-secondary m-2">Message Landlord</button>
-                                <!-- Bootstrap secondary button -->
-                            </div>
-                            <div class="row">
-                                <button class="btn btn-success m-2">Find Roommates</button>
-                                <!-- Bootstrap success button -->
+                            <div class="options">
+                                <div class="col m-3">
+                                    <div class="row">
+                                        <button class="btn btn-primary m-2">View Details</button>
+                                        <!-- Bootstrap primary button -->
+                                    </div>
+                                    <div class="row">
+                                        <button class="btn btn-secondary m-2">Message Landlord</button>
+                                        <!-- Bootstrap secondary button -->
+                                    </div>
+                                    <div class="row">
+                                        <button class="btn btn-success m-2">Find Roommates</button>
+                                        <!-- Bootstrap success button -->
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
+                <a type="button" class="bookmark-icon" onclick="toggleBookmark(event)">
+                    <?xml version="1.0" encoding="utf-8"?><!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
+                    <svg title="bookmark" width="30px" height="30" viewBox="0 0 24 24" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M3 11.0975V16.0909C3 19.1875 3 20.7358 3.73411 21.4123C4.08422 21.735 4.52615 21.9377 4.99692 21.9915C5.98402 22.1045 7.13675 21.0849 9.44216 19.0458C10.4612 18.1445 10.9708 17.6938 11.5603 17.5751C11.8506 17.5166 12.1494 17.5166 12.4397 17.5751C13.0292 17.6938 13.5388 18.1445 14.5578 19.0458C16.8633 21.0849 18.016 22.1045 19.0031 21.9915C19.4739 21.9377 19.9158 21.735 20.2659 21.4123C21 20.7358 21 19.1875 21 16.0909V11.0975C21 6.80891 21 4.6646 19.682 3.3323C18.364 2 16.2426 2 12 2C7.75736 2 5.63604 2 4.31802 3.3323C3.5108 4.14827 3.19796 5.26881 3.07672 7"
+                            stroke="#1C274D" stroke-width="1.5" stroke-linecap="round" />
+                        <path d="M15 6H9" stroke="#1C274D" stroke-width="1.5" stroke-linecap="round" />
+                    </svg>
+                </a>
             </div>
 
     </main>
