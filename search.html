@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Single Page Application</title>
+    <title>Listings</title>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
@@ -42,7 +42,7 @@
                                     <img class="mx-auto" src="https://placehold.co/65x65" alt="Profile picture">
                                 </div>
                             </button>
-                            <button type="button" class="btn btn-light dropdown-toggle dropdown-toggle-split"
+                            <button type="button" class="btn btn-light dropdown-toggle dropdown-toggle-split ms-2"
                                 data-bs-toggle="dropdown" aria-expanded="false">
                                 <span class="visually-hidden">Toggle Dropdown</span>
                             </button>
@@ -71,9 +71,10 @@
 
     <main id="main-listing">
 
-        <div class="bg-light">
-            <button id="filter-toggle" class="btn btn-light d-lg-none" type="button" data-bs-toggle="offcanvas"
-                data-bs-target="#offcanvas-filter" aria-controls="offcanvas-filter">
+
+        <div class="bg-light d-lg-none">
+            <button id="filter-toggle" class="btn btn-light" type="button" data-bs-toggle="modal"
+                data-bs-target="#filter-modal">
                 <?xml version="1.0" encoding="UTF-8"?>
                 <!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
                 <svg width="30px" height="30px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg"
@@ -116,80 +117,459 @@
                     </g>
                 </svg>
             </button>
+        </div>
 
-            <div class="offcanvas-lg offcanvas-top bg-light" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="offcanvas-filter"
-                aria-labelledby="offcanvas-filter-label">
-                <div class="offcanvas-header d-flex justify-content-between px-3">
-                    <h5 class="offcanvas-title" id="offcanvas-filter-label">Filters</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas"
-                        data-bs-target="#offcanvas-filter" aria-label="Close"></button>
-                </div>
-                <div class="offcanvas-body">
-                    <div class="sidebar-content d-flex flex-column gap-4 p-3">
-                        <h4>Filter Options</h4>
-
-                        <!-- Price Slider -->
-                        <div>
-                            <label for="priceRange2">Price Range:</label>
-                            <input type="range" id="priceRange2" name="priceRange" min="100" max="1000">
-                            <p>Min: $<span id="priceMin2">100</span> - Max: $<span id="priceMax2">1000</span></p>
+        <div class="modal" id="filter-modal" tabindex="-1" aria-labelledby="filter-modal-label" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="filter-modal-label">Filters</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="filters">
+                            <!-- University Affiliation -->
+                            <div>
+                                <label class="filter-section-header" for="universityAffiliation">University Affiliation</label>
+                                <select id="modal-universityAffiliation" name="universityAffiliation">
+                                    <option value="default">Select an option</option>
+                                    <option value="mcmaster">McMaster University</option>
+                                    <option value="toronto">University of Toronto</option>
+                                    <option value="waterloo">University of Waterloo</option>
+                                    <option value="ottawa">University of Ottawa</option>
+                                    <option value="carleton">Carleton University</option>
+                                    <option value="queens">Queens University</option>
+                                    <option value="more">...</option>
+                                </select>
+                            </div>
+        
+                            <!-- Type of Accommodation -->
+                            <div>
+                                <label class="filter-section-header" for="accommodationType">Accommodation Type</label>
+                                <select id="modal-accommodationType" name="accommodationType">
+                                    <option value="default">Select an option</option>
+                                    <option value="apartment">Apartment</option>
+                                    <option value="house">House</option>
+                                    <option value="room">Room (in shared house)</option>
+                                    <option value="studio">Studio</option>
+                                </select>
+                            </div>
+        
+                            <!-- Price Slider -->
+                            <div>
+                                <fieldset>
+                                    <legend class="filter-section-header w-100">Rent</legend>
+                                    <label class="d-inline-block" for="min">Min</label>
+                                    <input class="d-inline-block w-25" type="number" id="modal-min" name="min" />
+        
+                                    <label class="d-inline-block" for="max">Max</label>
+                                    <input class="d-inline-block w-25" type="number" id="modal-max" name="max" />
+                                </fieldset>
+                            </div>
+        
+                            <!-- Number of Rooms -->
+                            <div>
+                                <fieldset>
+                                    <legend class="filter-section-header w-100">Number of Rooms</legend>
+                                    <div class="btn-group filter-btn-group" role="group"
+                                        aria-label="Basic checkbox toggle button group">
+                                        <input type="checkbox" class="btn-check" id="modal-numRooms1" autocomplete="off">
+                                        <label class="btn btn-outline-dark" for="numRooms1">1</label>
+        
+                                        <input type="checkbox" class="btn-check" id="modal-numRooms2" autocomplete="off">
+                                        <label class="btn btn-outline-dark" for="numRooms2">2</label>
+        
+                                        <input type="checkbox" class="btn-check" id="modal-numRooms3" autocomplete="off">
+                                        <label class="btn btn-outline-dark" for="numRooms3">3</label>
+        
+                                        <input type="checkbox" class="btn-check" id="modal-numRooms4+" autocomplete="off">
+                                        <label class="btn btn-outline-dark" for="numRooms4+">4+</label>
+                                    </div>
+                                </fieldset>
+                            </div>
+        
+                            <!-- Number of Bathrooms -->
+                            <div>
+                                <fieldset>
+                                    <legend class="filter-section-header w-100">Number of Bathrooms</legend>
+                                    <div class="btn-group filter-btn-group" role="group"
+                                        aria-label="Basic checkbox toggle button group">
+                                        <input type="checkbox" class="btn-check" id="modal-numBaths1" autocomplete="off">
+                                        <label class="btn btn-outline-dark" for="numBaths1">1</label>
+        
+                                        <input type="checkbox" class="btn-check" id="modal-numBaths2" autocomplete="off">
+                                        <label class="btn btn-outline-dark" for="numBaths2">2</label>
+        
+                                        <input type="checkbox" class="btn-check" id="modal-numBaths3" autocomplete="off">
+                                        <label class="btn btn-outline-dark" for="numBaths3">3</label>
+        
+                                        <input type="checkbox" class="btn-check" id="modal-numBaths4+" autocomplete="off">
+                                        <label class="btn btn-outline-dark" for="numBaths4+">4+</label>
+                                    </div>
+                                </fieldset>
+                            </div>
+        
+                            <!-- Number of Roommates -->
+                            <div>
+                                <fieldset>
+                                    <legend class="filter-section-header w-100">Number of Roommates</legend>
+                                    <div class="btn-group filter-btn-group" role="group"
+                                        aria-label="Basic checkbox toggle button group">
+                                        <input type="checkbox" class="btn-check" id="modal-numRoommates1" autocomplete="off">
+                                        <label class="btn btn-outline-dark" for="numRoommates1">1</label>
+        
+                                        <input type="checkbox" class="btn-check" id="modal-numRoommates2" autocomplete="off">
+                                        <label class="btn btn-outline-dark" for="numRoommates2">2</label>
+        
+                                        <input type="checkbox" class="btn-check" id="modal-numRoommates3" autocomplete="off">
+                                        <label class="btn btn-outline-dark" for="numRoommates3">3</label>
+        
+                                        <input type="checkbox" class="btn-check" id="modal-numRoommates4+" autocomplete="off">
+                                        <label class="btn btn-outline-dark" for="numRoommates4+">4+</label>
+                                    </div>
+                                </fieldset>
+                            </div>
+        
+                            <!-- Location/Proximity Filter -->
+                            <div>
+                                <fieldset>
+                                    <legend class="filter-section-header">Proximity to Campus</legend>
+                                    <div class="d-flex gap-2">
+                                        <label for="proximity">Within</label>
+                                        <input class="d-inline-block w-50" type="number" id="modal-proximity" name="proximity" min="0"
+                                            max="50" placeholder="Distance in km">
+                                    </div>
+                                    
+                                </fieldset>
+                                
+                            </div>
+        
+        
+        
+                            <!-- Lease Duration -->
+                            <div>
+                                <fieldset>
+                                    <legend class="filter-section-header w-100">Lease Duration</legend>
+                                    <div class="btn-group filter-btn-group" role="group"
+                                        aria-label="Basic checkbox toggle button group">
+                                        <input type="checkbox" class="btn-check" id="modal-leaseDuration4" autocomplete="off">
+                                        <label class="btn btn-outline-dark lease" for="leaseDuration4">4 mo.</label>
+        
+                                        <input type="checkbox" class="btn-check" id="modal-leaseDuration8" autocomplete="off">
+                                        <label class="btn btn-outline-dark lease" for="leaseDuration8">8 mo.</label>
+        
+                                        <input type="checkbox" class="btn-check" id="modal-leaseDuration12" autocomplete="off">
+                                        <label class="btn btn-outline-dark lease" for="leaseDuration12">12+ mo.</label>
+                                    </div>
+                                </fieldset>
+                            </div>
+        
+                            <!-- Available By -->
+        
+                            <div>
+                                <label class="filter-section-header" for="available">Available By</label>
+                                <input class="w-50" type="date" id="modal-available" name="available">
+                            </div>
+        
+                            <!-- Features and Amenities -->
+                            <fieldset>
+                                <div id="modal-amenities" class="d-flex align-items-center gap-1">
+                                    <legend class="filter-section-header d-inline-block">Features and Amenities</legend>
+                                    <button class="btn btn-primary bg-transparent p-0 border-0" type="button"
+                                        data-bs-toggle="collapse" data-bs-target="#modal-amenitiesCollapse" aria-expanded="false"
+                                        aria-controls="modal-amenitiesCollapse">
+                                        <?xml version="1.0" encoding="utf-8"?><!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
+                                        <svg width="20px" height="20px" viewBox="0 0 24 24" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                                d="M12.7071 14.7071C12.3166 15.0976 11.6834 15.0976 11.2929 14.7071L6.29289 9.70711C5.90237 9.31658 5.90237 8.68342 6.29289 8.29289C6.68342 7.90237 7.31658 7.90237 7.70711 8.29289L12 12.5858L16.2929 8.29289C16.6834 7.90237 17.3166 7.90237 17.7071 8.29289C18.0976 8.68342 18.0976 9.31658 17.7071 9.70711L12.7071 14.7071Z"
+                                                fill="#000000" />
+                                        </svg>
+                                    </button>
+                                </div>
+        
+        
+                                <div class="collapse" id="modal-amenitiesCollapse">
+                                    <div class="card card-body bg-light">
+                                        <div>
+                                            <label class="d-inline-block check-label" for="wifi">Wifi Included</label>
+                                            <input class="d-inline-block check" type="checkbox" id="modal-wifi" name="wifi">
+                                        </div>
+        
+                                        <div>
+                                            <label class="d-inline-block check-label" for="utilities">Utilities Included</label>
+                                            <input class="d-inline-block check" type="checkbox" id="modal-utilities" name="utilities">
+                                        </div>
+        
+                                        <div>
+                                            <label class="d-inline-block check-label" for="furnished">Furnished</label>
+                                            <input class="d-inline-block check" type="checkbox" id="modal-furnished" name="furnished">
+                                        </div>
+        
+                                        <div>
+                                            <label class="d-inline-block check-label" for="pets">Pets Allowed</label>
+                                            <input class="d-inline-block check" type="checkbox" id="modal-pets" name="pets">
+                                        </div>
+        
+                                        <div>
+                                            <label class="d-inline-block check-label" for="laundry">On-site Laundry</label>
+                                            <input class="d-inline-block check" type="checkbox" id="modal-laundry" name="laundry">
+                                        </div>
+        
+                                        <div>
+                                            <label class="d-inline-block check-label" for="ac">Has Air Conditioning</label>
+                                            <input class="d-inline-block check" type="checkbox" id="modal-ac" name="ac">
+                                        </div>
+        
+                                        <div>
+                                            <label class="d-inline-block check-label" for="parking">Parking</label>
+                                            <input class="d-inline-block check" type="checkbox" id="modal-parking" name="parking">
+                                        </div>
+        
+                                        <div>
+                                            <label class="d-inline-block check-label" for="sublet">Sublet</label>
+                                            <input class="d-inline-block check" type="checkbox" id="modal-sublet" name="sublet">
+                                        </div>
+        
+                                    </div>
+                                </div>
+                            </fieldset>
+        
+                            <!-- Allow Sublets -->
+                            <div>
+                                <label class="d-inline-block check-label" for="yes-sublet">Allow Sublets</label>
+                                <input class="d-inline-block check" type="checkbox" id="modal-yes-sublet" name="yes-sublet">
+                            </div>
                         </div>
-
-                        <!-- Number of Rooms -->
-                        <div>
-                            <label for="numRooms2">Number of Rooms:</label>
-                            <input type="number" id="numRooms2" name="numRooms" min="1" max="10">
-                        </div>
-
-                        <!-- Number of Roommates -->
-                        <div>
-                            <label for="numRoommates2">Number of Roommates:</label>
-                            <input type="number" id="numRoommates2" name="numRoommates" min="1" max="10">
-                        </div>
-
-                        <!-- Location/Proximity Filter -->
-                        <div>
-                            <label for="proximity2">Proximity to Campus:</label>
-                            <input type="number" id="proximity2" name="proximity" min="0" max="50"
-                                placeholder="Distance in km">
-                        </div>
-
-                        <!-- Type of Accommodation -->
-                        <div>
-                            <label for="accommodationType2">Accommodation Type:</label>
-                            <select id="accommodationType2" name="accommodationType">
-                                <option value="apartment">Apartment</option>
-                                <option value="sharedHouse">Shared House</option>
-                                <option value="studio">Studio</option>
-                                <option value="dormitory">Dormitory</option>
-                            </select>
-                        </div>
-
-                        <!-- Lease Duration -->
-                        <div>
-                            <label for="leaseDuration2">Lease Duration:</label>
-                            <select id="leaseDuration2" name="leaseDuration">
-                                <option value="shortTerm">Short-Term</option>
-                                <option value="longTerm">Long-Term</option>
-                            </select>
-                        </div>
-
-                        <!-- Furnished Filter -->
-                        <div>
-                            <label for="furnished2">Furnished:</label>
-                            <input type="checkbox" id="furnished2" name="furnished">
-                        </div>
-
-                        <!-- Pet-Friendly Filter -->
-                        <div>
-                            <label for="petFriendly2">Pet-Friendly:</label>
-                            <input type="checkbox" id="petFriendly2" name="petFriendly">
-                        </div>
-
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Apply filters</button>
                     </div>
                 </div>
             </div>
+        </div>
 
+        <div id="sidebar" class="bg-light">
+            <div class="sidebar-content d-flex flex-column gap-4 bg-light">
+                <h4>Filters</h4>
+
+                <div class="filters">
+                    <!-- University Affiliation -->
+                    <div>
+                        <label class="filter-section-header" for="universityAffiliation">University Affiliation</label>
+                        <select id="universityAffiliation" name="universityAffiliation">
+                            <option value="mcmaster">McMaster University</option>
+                            <option value="toronto">University of Toronto</option>
+                            <option value="waterloo">University of Waterloo</option>
+                            <option value="ottawa">University of Ottawa</option>
+                            <option value="carleton">Carleton University</option>
+                            <option value="queens">Queens University</option>
+                            <option value="more">...</option>
+                        </select>
+                    </div>
+
+                    <!-- Type of Accommodation -->
+                    <div>
+                        <label class="filter-section-header" for="accommodationType">Accommodation Type</label>
+                        <select id="accommodationType" name="accommodationType">
+                            <option value="apartment">Apartment</option>
+                            <option value="house">House</option>
+                            <option value="room">Room (in shared house)</option>
+                            <option value="studio">Studio</option>
+                        </select>
+                    </div>
+
+                    <!-- Price Slider -->
+                    <div>
+                        <fieldset>
+                            <legend class="filter-section-header w-100">Rent</legend>
+                            <label class="d-inline-block" for="min">Min</label>
+                            <input class="d-inline-block" type="number" id="min" name="min" />
+
+                            <label class="d-inline-block" for="max">Max</label>
+                            <input class="d-inline-block" type="number" id="max" name="max" />
+                        </fieldset>
+                    </div>
+
+                    <!-- Number of Rooms -->
+                    <div>
+                        <fieldset>
+                            <legend class="filter-section-header">Number of Rooms</legend>
+                            <div class="btn-group filter-btn-group" role="group"
+                                aria-label="Basic checkbox toggle button group">
+                                <input type="checkbox" class="btn-check" id="numRooms1" autocomplete="off">
+                                <label class="btn btn-outline-dark" for="numRooms1">1</label>
+
+                                <input type="checkbox" class="btn-check" id="numRooms2" autocomplete="off">
+                                <label class="btn btn-outline-dark" for="numRooms2">2</label>
+
+                                <input type="checkbox" class="btn-check" id="numRooms3" autocomplete="off">
+                                <label class="btn btn-outline-dark" for="numRooms3">3</label>
+
+                                <input type="checkbox" class="btn-check" id="numRooms4+" autocomplete="off">
+                                <label class="btn btn-outline-dark" for="numRooms4+">4+</label>
+                            </div>
+                        </fieldset>
+                    </div>
+
+                    <!-- Number of Bathrooms -->
+                    <div>
+                        <fieldset>
+                            <legend class="filter-section-header">Number of Bathrooms</legend>
+                            <div class="btn-group filter-btn-group" role="group"
+                                aria-label="Basic checkbox toggle button group">
+                                <input type="checkbox" class="btn-check" id="numBaths1" autocomplete="off">
+                                <label class="btn btn-outline-dark" for="numBaths1">1</label>
+
+                                <input type="checkbox" class="btn-check" id="numBaths2" autocomplete="off">
+                                <label class="btn btn-outline-dark" for="numBaths2">2</label>
+
+                                <input type="checkbox" class="btn-check" id="numBaths3" autocomplete="off">
+                                <label class="btn btn-outline-dark" for="numBaths3">3</label>
+
+                                <input type="checkbox" class="btn-check" id="numBaths4+" autocomplete="off">
+                                <label class="btn btn-outline-dark" for="numBaths4+">4+</label>
+                            </div>
+                        </fieldset>
+                    </div>
+
+                    <!-- Number of Roommates -->
+                    <div>
+                        <fieldset>
+                            <legend class="filter-section-header">Number of Roommates</legend>
+                            <div class="btn-group filter-btn-group" role="group"
+                                aria-label="Basic checkbox toggle button group">
+                                <input type="checkbox" class="btn-check" id="numRoommates1" autocomplete="off">
+                                <label class="btn btn-outline-dark" for="numRoommates1">1</label>
+
+                                <input type="checkbox" class="btn-check" id="numRoommates2" autocomplete="off">
+                                <label class="btn btn-outline-dark" for="numRoommates2">2</label>
+
+                                <input type="checkbox" class="btn-check" id="numRoommates3" autocomplete="off">
+                                <label class="btn btn-outline-dark" for="numRoommates3">3</label>
+
+                                <input type="checkbox" class="btn-check" id="numRoommates4+" autocomplete="off">
+                                <label class="btn btn-outline-dark" for="numRoommates4+">4+</label>
+                            </div>
+                        </fieldset>
+                    </div>
+
+                    <!-- Location/Proximity Filter -->
+                    <div>
+                        <fieldset>
+                            <legend class="filter-section-header">Proximity to Campus</legend>
+                            <div class="d-flex gap-2">
+                                <label for="proximity">Within</label>
+                                <input class="d-inline-block" type="number" id="proximity" name="proximity" min="0"
+                                    max="50" placeholder="Distance in km">
+                            </div>
+                            
+                        </fieldset>
+                        
+                    </div>
+
+
+
+                    <!-- Lease Duration -->
+                    <div>
+                        <fieldset>
+                            <legend class="filter-section-header">Lease Duration</legend>
+                            <div class="btn-group filter-btn-group" role="group"
+                                aria-label="Basic checkbox toggle button group">
+                                <input type="checkbox" class="btn-check" id="leaseDuration4" autocomplete="off">
+                                <label class="btn btn-outline-dark lease" for="leaseDuration4">4 mo.</label>
+
+                                <input type="checkbox" class="btn-check" id="leaseDuration8" autocomplete="off">
+                                <label class="btn btn-outline-dark lease" for="leaseDuration8">8 mo.</label>
+
+                                <input type="checkbox" class="btn-check" id="leaseDuration12" autocomplete="off">
+                                <label class="btn btn-outline-dark lease" for="leaseDuration12">12+ mo.</label>
+                            </div>
+                        </fieldset>
+                    </div>
+
+                    <!-- Available By -->
+
+                    <div>
+                        <label class="filter-section-header" for="available">Available By</label>
+                        <input type="date" id="available" name="available">
+                    </div>
+
+                    <!-- Features and Amenities -->
+                    <fieldset>
+                        <div id="amenities" class="d-flex align-items-center gap-1">
+                            <legend class="filter-section-header d-inline-block">Features and Amenities</legend>
+                            <button class="btn btn-primary bg-transparent p-0 border-0" type="button"
+                                data-bs-toggle="collapse" data-bs-target="#amenitiesCollapse" aria-expanded="false"
+                                aria-controls="amenitiesCollapse">
+                                <?xml version="1.0" encoding="utf-8"?><!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
+                                <svg width="20px" height="20px" viewBox="0 0 24 24" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                        d="M12.7071 14.7071C12.3166 15.0976 11.6834 15.0976 11.2929 14.7071L6.29289 9.70711C5.90237 9.31658 5.90237 8.68342 6.29289 8.29289C6.68342 7.90237 7.31658 7.90237 7.70711 8.29289L12 12.5858L16.2929 8.29289C16.6834 7.90237 17.3166 7.90237 17.7071 8.29289C18.0976 8.68342 18.0976 9.31658 17.7071 9.70711L12.7071 14.7071Z"
+                                        fill="#000000" />
+                                </svg>
+                            </button>
+                        </div>
+
+
+                        <div class="collapse" id="amenitiesCollapse">
+                            <div class="card card-body bg-light">
+                                <div>
+                                    <label class="d-inline-block check-label" for="wifi">Wifi Included</label>
+                                    <input class="d-inline-block check" type="checkbox" id="wifi" name="wifi">
+                                </div>
+
+                                <div>
+                                    <label class="d-inline-block check-label" for="utilities">Utilities Included</label>
+                                    <input class="d-inline-block check" type="checkbox" id="utilities" name="utilities">
+                                </div>
+
+                                <div>
+                                    <label class="d-inline-block check-label" for="furnished">Furnished</label>
+                                    <input class="d-inline-block check" type="checkbox" id="furnished" name="furnished">
+                                </div>
+
+                                <div>
+                                    <label class="d-inline-block check-label" for="pets">Pets Allowed</label>
+                                    <input class="d-inline-block check" type="checkbox" id="pets" name="pets">
+                                </div>
+
+                                <div>
+                                    <label class="d-inline-block check-label" for="laundry">On-site Laundry</label>
+                                    <input class="d-inline-block check" type="checkbox" id="laundry" name="laundry">
+                                </div>
+
+                                <div>
+                                    <label class="d-inline-block check-label" for="ac">Has Air Conditioning</label>
+                                    <input class="d-inline-block check" type="checkbox" id="ac" name="ac">
+                                </div>
+
+                                <div>
+                                    <label class="d-inline-block check-label" for="parking">Parking</label>
+                                    <input class="d-inline-block check" type="checkbox" id="parking" name="parking">
+                                </div>
+
+                                <div>
+                                    <label class="d-inline-block check-label" for="sublet">Sublet</label>
+                                    <input class="d-inline-block check" type="checkbox" id="sublet" name="sublet">
+                                </div>
+
+                            </div>
+                        </div>
+                    </fieldset>
+
+                    <!-- Allow Sublets -->
+                    <div>
+                        <label class="d-inline-block check-label" for="yes-sublet">Allow Sublets</label>
+                        <input class="d-inline-block check" type="checkbox" id="yes-sublet" name="yes-sublet">
+                    </div>
+
+                    <button class="btn bg-primary d-block ms-5 mt-2 text-light">Apply Filters</button>
+                </div>
+
+            </div>
         </div>
 
         <div id="toolbar" class="bg-light d-flex justify-content-end align-items-center">
@@ -211,15 +591,18 @@
             <div class="card house-listing mb-3">
                 <div class="row g-0">
                     <div class="col-md-4">
-                        <img src="https://www.mcmaster-housing.ca/276b/01.jpg" class="img-fluid rounded-start"
+                        <img src="./img/house4.jpg" class="img-fluid rounded-start"
                             alt="House Image 1">
                     </div>
                     <div class="col-md-8">
                         <div class="card-body">
                             <div class="info">
-                                <h5 class="card-title text-primary">$750<small
+                                <div class="d-flex justify-content-between">
+                                    <h5 class="card-title text-primary">$750<small
                                         class="text-body-secondary text-secondary">/
                                         month</small></h5>
+                                        <div class="university-affiliation text-danger">McMaster Univeristy</div>
+                                </div>
                                 <h5 class="card-subtitle">
                                     Room for Rent
                                     <div class="verified-badge d-inline-block">
@@ -237,6 +620,7 @@
                                         <li class="nb-beds">4 <span>beds</span></li>
                                         <li class="nb-baths">2 <span>baths</span></li>
                                         <li class="size">2100 <span>FT²</span></li>
+                                        <li class="listing-type text-muted">| Room</li>
                                     </ul>
                                     <ul class="amenities text-secondary list-unstyled">
                                         <li class="has">High-speed Wi-Fi</li>
@@ -271,6 +655,7 @@
                         </div>
                     </div>
                 </div>
+                
                 <a type="button" class="bookmark-icon" onclick="toggleBookmark(event)">
                     <?xml version="1.0" encoding="utf-8"?><!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
                     <svg title="bookmark" width="30px" height="30" viewBox="0 0 24 24" fill="none"
@@ -287,15 +672,18 @@
             <div class="card house-listing mb-3">
                 <div class="row g-0">
                     <div class="col-md-4">
-                        <img src="https://www.mcmaster-housing.ca/276b/01.jpg" class="img-fluid rounded-start"
+                        <img src="https://wvs.imgix.net/2020/11/slide2.jpg?auto=format&fit=&h=auto&ixlib=php-3.2.0&w=1136&s=33935014d3283111a6d98b8693a9b0a5" class="img-fluid rounded-start"
                             alt="House Image 1">
                     </div>
                     <div class="col-md-8">
                         <div class="card-body">
                             <div class="info">
-                                <h5 class="card-title text-primary">$900<small
+                                <div class="d-flex justify-content-between">
+                                    <h5 class="card-title text-primary">$900<small
                                         class="text-body-secondary text-secondary">/
                                         month</small></h5>
+                                    <div class="university-affiliation text-danger">University of Toronto</div>
+                                </div>
                                 <h5 class="card-subtitle">
                                     Room for Rent
                                     <div class="verified-badge d-inline-block">
@@ -313,6 +701,7 @@
                                         <li class="nb-beds">3 <span>beds</span></li>
                                         <li class="nb-baths">1 <span>baths</span></li>
                                         <li class="size">2200 <span>FT²</span></li>
+                                        <li class="listing-type text-muted">| Room</li>
                                     </ul>
                                     <ul class="amenities text-secondary list-unstyled">
                                         <li class="has">Wifi Included</li>
@@ -370,9 +759,12 @@
                     <div class="col-md-8">
                         <div class="card-body">
                             <div class="info">
-                                <h5 class="card-title text-primary">$1650<small
+                                <div class="d-flex justify-content-between">
+                                    <h5 class="card-title text-primary">$1650<small
                                         class="text-body-secondary text-secondary">/
                                         month</small></h5>
+                                    <div class="university-affiliation text-danger">University of Ottawa</div>
+                                </div>
                                 <h5 class="card-subtitle">
                                     House for Rent
                                     <div class="verified-badge d-inline-block">
@@ -390,6 +782,7 @@
                                         <li class="nb-beds">2 <span>beds</span></li>
                                         <li class="nb-baths">2 <span>baths</span></li>
                                         <li class="size">1600 <span>FT²</span></li>
+                                        <li class="listing-type text-muted">| House</li>
                                     </ul>
                                     <ul class="amenities text-secondary list-unstyled">
                                         <li class="has">High-speed Wi-Fi</li>
@@ -435,6 +828,7 @@
                     </svg>
                 </a>
             </div>
+        </div>
 
     </main>
 

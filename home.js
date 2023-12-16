@@ -4,40 +4,15 @@ let accountOptions = document.querySelector(".navbar .account-options");
 let welcomeText = document.querySelector(".dropdown-item.welcome-text");
 let amenitiesHas = document.querySelectorAll(".amenities .has");
 let amenitiesLacks = document.querySelectorAll(".amenities .lacks");
-let sidebarToggler = document.querySelector('#sidebar-toggler');
-let sidebar = document.querySelector('#sidebar');
-let sidebarNav = document.querySelector('#sidebarNav');
 
+const price = document.querySelector("#priceRange");
+const output = document.querySelector(".price-output");
 
-// Create a condition that targets viewports at least 768px wide
-// const mediaQueryLarge = window.matchMedia('(min-width: 1024px)');
-// const mediaQuerySmall = window.matchMedia('(max-width: 1023px)');
+output.textContent = price.value;
 
-// function handleTabletChange(e) {
-//   // Check if the media query is true
-//   if (e.matches) {
-//     sidebar.classList.remove("d-none")
-//     sidebarNav.classList.remove("collapse", "navbar-collapse");
-//     sidebarToggler.style.visibility = "hidden";
-//   }
-// }
-
-// function handleMinimizeChange(e) {
-//     // Check if the media query is true
-//     if (e.matches) {
-//       sidebar.classList.add("d-none");
-//       sidebarNav.classList.add("collapse", "navbar-collapse");
-//       sidebarToggler.style.visibility = "visible";
-//     }
-// }
-
-// // Register event listener
-// mediaQuerySmall.addListener(handleMinimizeChange)
-// mediaQueryLarge.addListener(handleTabletChange)
-
-// // Initial check
-// handleMinimizeChange(mediaQuerySmall)
-// handleTabletChange(mediaQueryLarge)
+price.addEventListener("input", () => {
+  output.textContent = price.value;
+});
 
 for (const amenity of amenitiesHas) {
   amenity.innerHTML += `
