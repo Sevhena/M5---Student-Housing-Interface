@@ -1,18 +1,9 @@
-let featuredItems = document.querySelector("#announcements .carousel-item");
+let featuredItems = document.querySelectorAll("#announcements .carousel-item");
 let loginLink = document.querySelector(".navbar a.log-in");
 let accountOptions = document.querySelector(".navbar .account-options");
 let welcomeText = document.querySelector(".dropdown-item.welcome-text");
 let amenitiesHas = document.querySelectorAll(".amenities .has");
 let amenitiesLacks = document.querySelectorAll(".amenities .lacks");
-
-const price = document.querySelector("#priceRange");
-const output = document.querySelector(".price-output");
-
-output.textContent = price.value;
-
-price.addEventListener("input", () => {
-  output.textContent = price.value;
-});
 
 for (const amenity of amenitiesHas) {
   amenity.innerHTML += `

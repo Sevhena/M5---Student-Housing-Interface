@@ -248,10 +248,12 @@ footer div.links a {
     font-weight: bold;
     padding-left: 0!important;
     margin-bottom: 8px!important;
+    width: -moz-fit-content;
     width: fit-content;
 }
 
 label[for="proximity"] {
+    width: -moz-fit-content;
     width: fit-content;
 }
 
@@ -264,6 +266,7 @@ label[for="proximity"] {
 #max,
 label[for="min"],
 label[for="max"] {
+    width: -moz-fit-content;
     width: fit-content;
 }
 
@@ -303,6 +306,7 @@ label[for="max"] {
 }
 
 .check, .check-label {
+    width: -moz-fit-content!important;
     width: fit-content!important;
 }
 
