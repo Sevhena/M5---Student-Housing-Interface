@@ -23,8 +23,9 @@
     color: wheat;
 }
 
+#toolbar .dropdown-menu,
 .dropdown-menu {
-    right: 0;
+    right: 0!important;
     left: unset;
 }
 
